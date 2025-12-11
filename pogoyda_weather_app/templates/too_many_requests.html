@@ -1,0 +1,102 @@
+{% load i18n %}
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Too Many Requests" %} - Pogoyda</title>
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image">
+</head>
+<body>
+
+<header class="dark-header">
+    <div class="header-left">
+        <a href="{% url 'index_url' %}" class="header-logo">
+            <h1>{% trans "Pogoyda" %}</h1>
+        </a>
+    </div>
+
+    <div class="header-right">
+        {% if user.is_authenticated %}
+        <div class="dropdown">
+            <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
+            <label for="dropdown-toggle" class="dropdown-btn nav-link">{% trans "Favorites" %}</label>
+            <div class="dropdown-menu">
+                {% for fav in favorites %}
+                    <form action="{% url 'show_favorites' %}" method="get" class="dropdown-item">
+                        <input type="hidden" name="city" value="{{ fav.city }}">
+                        <input type="hidden" name="country" value="{{ fav.country }}">
+                        {{ fav.city }} - {{ fav.country }}
+                        <button type="submit" class="dropdown-submit-btn"></button>
+                    </form>
+                {% empty %}
+                    <span class="dropdown-item text-muted">{% trans "You don't have any favorite cities." %}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dropdown">
+            <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
+            <label for="dropdown-toggle" class="dropdown-btn nav-link">{% trans "History" %}</label>
+            <div class="dropdown-menu">
+                {% if request.session.search_history %}
+                    {% for history in request.session.search_history %}
+                        <form action="{% url 'show_favorites' %}" method="get" class="dropdown-item">
+                            <input type="hidden" name="city" value="{{ history|first_word }}">
+                            {{ history }}
+                            <button type="submit" class="dropdown-submit-btn"></button>
+                        </form>
+                    {% endfor %}
+                {% else %}
+                    <span class="dropdown-item text-muted">{% trans "You don't have any search history yet." %}</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'custom_logout' %}" class="header-action-button">{% trans "Logout" %}</a>
+        <div class="user-info">
+                <span class="username">{{ user.username }}</span>
+                <span class="auth-status">{% trans "logged in" %}</span>
+        </div>
+        {% else %}
+                <a href="{% url 'custom_register' %}" class="header-action-button">{% trans "Register" %}</a>
+        {% endif %}
+    </div>
+</header>
+
+<div class="register-container">
+    <div class="register-card">
+        <label class="switch theme-switch">
+            <input type="checkbox" id="dark_theme_checkbox">
+            <span class="slider"></span>
+        </label>
+        
+        <div class="register-header">
+            <img src="{% static 'images/Temperature_pic.png' %}" alt="{% trans 'Too Many Requests' %}" class="register-icon">
+            <h2 class="register-title">{% trans "Too Many Requests" %}</h2>
+            <p class="register-subtitle">{% trans "Please wait before making another request" %}</p>
+        </div>
+
+        <div class="email-notify-content">
+            <div class="notify-message">
+                <p>{% trans "You have sent too many requests in a short period of time." %}</p>
+                <p>{% trans "Please wait a few minutes before trying again." %}</p>
+                <p>{% trans "This helps us protect our service from abuse." %}</p>
+            </div>
+        </div>
+
+        <div class="register-footer">
+            <p class="register-link">
+                {% trans "Back to" %} 
+                <a href="{% url 'index_url' %}" class="link-highlight">{% trans "Home" %}</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/dark_theme.js' %}"></script>
+
+</body>
+</html>

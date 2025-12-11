@@ -1,0 +1,8 @@
+Django>=5.2
+python-dotenv
+django-ratelimit
+requests
+pymorphy3
+PyJWT
+redis
+psycopg2-binary

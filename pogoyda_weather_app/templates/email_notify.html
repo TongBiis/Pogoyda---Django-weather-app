@@ -1,0 +1,57 @@
+{% load i18n %}
+{% load static %}
+{% get_current_language as current_lang %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Email Confirmation" %} - Pogoyda</title>
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image">
+</head>
+<body>
+
+<header class="dark-header">
+    <div class="header-left">
+        <a href="{% url 'index_url' %}" class="header-logo">
+            <h1>{% trans "Pogoyda" %}</h1>
+        </a>
+    </div>
+    <div class="header-right">
+        <a href="{% url 'custom_register' %}" class="header-action-button">{% trans "Register" %}</a>
+    </div>
+</header>
+
+<div class="register-container">
+    <div class="register-card">
+        <label class="switch theme-switch">
+            <input type="checkbox" id="dark_theme_checkbox">
+            <span class="slider"></span>
+        </label>
+        
+        <div class="register-header">
+            <img src="{% static 'images/Temperature_pic.png' %}" alt="{% trans 'Email' %}" class="register-icon">
+            <h2 class="register-title">{% trans "Check Your Email" %}</h2>
+            <p class="register-subtitle">{% trans "We've sent a confirmation link to your email address" %}</p>
+        </div>
+
+        <div class="email-notify-content">
+            <div class="notify-message">
+                <p>{% trans "Please check your inbox and click the confirmation link to complete your registration." %}</p>
+                <p>{% trans "If you don't see the email, check your spam folder." %}</p>
+            </div>
+        </div>
+
+        <div class="register-footer">
+            <p class="register-link">
+                {% trans "Back to" %} 
+                <a href="{% url 'index_url' %}" class="link-highlight">{% trans "Home" %}</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/dark_theme.js' %}"></script>
+
+</body>
+</html>

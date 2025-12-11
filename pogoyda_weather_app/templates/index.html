@@ -1,0 +1,180 @@
+{% load i18n %}
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pogoyda</title>
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image">
+</head>
+<body>
+
+<header class="dark-header">
+    <div class="header-left">
+        <a href="." class="header-logo"><h1>{% trans "Pogoyda" %}</h1></a>
+    </div>
+    
+    <div class="header-right">
+        <a href="{% url 'password_reset' %}" class="header-action-button">{% trans "Forgot password?" %}</a>
+        {% if user.is_authenticated %}
+        <div class="dropdown">
+            <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
+            <label for="dropdown-toggle" class="dropdown-btn nav-link">{% trans "Favorites" %}</label>
+            <div class="dropdown-menu">
+                {% for fav in favorites %}
+                    <form action="{% url 'show_favorites' %}" method="get" class="dropdown-item">
+                        <input type="hidden" name="city" value="{{ fav.city }}">
+                        <input type="hidden" name="country" value="{{ fav.country }}">
+                        {{ fav.city }} - {{ fav.country }}
+                        <button type="submit" class="dropdown-submit-btn"></button>
+                    </form>
+                {% empty %}
+                    <span class="dropdown-item text-muted">{% trans "You don't have any favorite cities." %}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dropdown">
+            <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
+            <label for="dropdown-toggle" class="dropdown-btn nav-link">{% trans "History" %}</label>
+            <div class="dropdown-menu">
+                {% if request.session.search_history %}
+                    {% for history in request.session.search_history %}
+                        <form action="{% url 'show_favorites' %}" method="get" class="dropdown-item">
+                            <input type="hidden" name="city" value="{{ history|first_word }}">
+                            {{ history }}
+                            <button type="submit" class="dropdown-submit-btn"></button>
+                        </form>
+                    {% endfor %}
+                {% else %}
+                    <span class="dropdown-item text-muted">{% trans "You don't have any search history yet." %}</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'custom_logout' %}" class="header-action-button">{% trans "Logout" %}</a>
+        <div class="user-info">
+                <span class="username">{{ user.username }}</span>
+                <span class="auth-status">{% trans "logged in" %}</span>
+        </div>
+        {% else %}
+                <a href="{% url 'custom_register' %}" class="header-action-button">{% trans "Register" %}</a>
+        {% endif %}
+    </div>
+</header>
+
+<div class="container dark-container">
+    <div class="left-panel dark-panel">
+        <div class="side-greeting">
+            <img src="{% static 'images/Temperature_pic.png' %}" alt="{% trans 'Weather' %}" class="side-icon">
+            <h2 class="side-title">{% trans "Welcome!" %}</h2>
+            <p class="side-desc">{% trans "Find out the weather in any city in the world" %}</p>
+            <p class="side-hint">{% trans "Example: " %}<span>{% trans "Moscow, London, Tokyo" %}</span></p>
+        </div>
+
+        <form method="post" class="form-group">
+            {% csrf_token %}
+            <input type="text" name="city" class="city-search" placeholder="{% trans 'Enter a city name' %}" required>
+            <button type="submit" class="city-search-submit-button">{% trans "Find the weather" %}</button>
+        </form>
+    </div>
+
+    <div class="right-panel dark-panel">
+        <div class="content-block dark-content">
+            <label class="switch theme-switch">
+                <input type="checkbox" id="dark_theme_checkbox">
+                <span class="slider"></span>
+            </label>
+            <div class="dynamic-block">
+                    <div class="current-weather-block">
+                        <div class="weather-header">
+                             <h3 class="weather-location">{% trans "Weather in" %} {{ location.city|title }}, {{ location.country }}</h3>
+                             <p class="weather-date-time">{{ time_list.0 }} {% trans time_list.1|lower %} {{ time_list.2 }}</p>
+                         </div>
+                        {% if user.is_authenticated %}
+                        <form action="{% url 'create_favorites' %}" method="get" class="favorite-form">
+                             <button type="submit" class="favorite-btn">
+                                 {% trans "Add to favorites" %}
+                             </button>
+                         </form>
+                        {% endif %}
+
+                        <div class="weather-main">
+                            <div class="weather-condition">
+                                <img src="{{ current_weather.condition_icon }}" alt="{{ current_weather.condition_text }}" class="condition-icon">
+                                <p class="condition-text">{{ current_weather.condition_text }}</p>
+                            </div>
+
+                            <div class="weather-temp">
+                                <span class="temp-pair">
+                                    <span class="temp-number">{{ current_weather.temp_c|floatformat:'0' }}</span><span class="temp-degree">°C</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <img src="{% static 'images/Temperature_pic.png' %}" alt="{% trans 'Temperature' %}" class="detail-icon">
+                                <div class="detail-info">
+                                    <span class="detail-value">{{ current_weather.temp_c|floatformat:'0' }}°C</span>
+                                    <span class="detail-label">{% trans "Temperature" %}</span>
+                                </div>
+                            </div>
+
+                            <div class="weather-detail">
+                                <img src="{% static 'images/Wind_speed_pic.png' %}" alt="{% trans 'Wind' %}" class="detail-icon">
+                                <div class="detail-info">
+                                    <span class="detail-value">{{ current_weather.wind_kph }} {% trans "km/h" %}</span>
+                                    <span class="detail-label">{% trans "Wind" %}</span>
+                                </div>
+                            </div>
+
+                            <div class="weather-detail">
+                                <img src="{% static 'images/Humidity_pic.png' %}" alt="{% trans 'Humidity' %}" class="detail-icon">
+                                <div class="detail-info">
+                                    <span class="detail-value">{{ current_weather.humidity }}%</span>
+                                    <span class="detail-label">{% trans "Humidity" %}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="checkbox" id="spoiler-toggle" class="spoiler-toggle">
+                    <label for="spoiler-toggle" class="spoiler-btn">{% trans "Show forecast for 2 day ahead" %}</label>
+                    <div class="spoiler-content">
+                        {% for day in forecast %}
+                        <h1>{{ day.date_formatted }}</h1>
+                        <hr class="divider">
+                        <div class="hours-container">
+                            {% for hour in day.hours %}
+                            <div class="hour-slot">
+                                <div class="hour-main">
+                                    <span class="time">{{ hour.time }}<span class="temp-separator"></span>
+                                    <span class="temperature"><img class="hour-pics" src="{% static 'images/Temperature_pic.png' %}" alt="" title="{% trans 'Temperature' %}"> {{ hour.temp_c|floatformat:'0' }}°C</span></span>
+                                </div>
+                                <div class="hour-details">
+                                    <div class="detail"><span>{% trans "Wind: " %}</span> {{ hour.wind_kph }} {% trans "km/h" %} <img class="hour-pics" src="{% static 'images/Wind_speed_pic.png' %}" alt="" title="{% trans 'Wind speed' %}"></div>
+                                    <div class="detail"><span>{% trans "Humidity: " %}</span> {{ hour.humidity }}% <img class="hour-pics" src="{% static 'images/Humidity_pic.png' %}" alt="" title="{% trans 'Humidity' %}"></div>
+                                    <div class="detail"><span>{% trans "Condition:" %}</span> <img src="{{ hour.condition_icon }}" alt="{{ hour.condition_text }}" title="{{ hour.condition_text }}" class="condition-pics"></div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+            </div>
+        </div>
+</div>
+
+
+
+<script src="{% static 'js/dark_theme.js' %}"></script>
+
+</div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,115 @@
+{% load i18n %}
+{% load static %}
+{% load custom_filters %}
+{% get_current_language as current_lang %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Account Created" %} - Pogoyda</title>
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image">
+</head>
+<body>
+
+<header class="dark-header">
+    <div class="header-left">
+        <a href="{% url 'index_url' %}" class="header-logo">
+            <h1>{% trans "Pogoyda" %}</h1>
+        </a>
+    </div>
+
+    <div class="header-right">
+        {% if user.is_authenticated %}
+        <div class="dropdown">
+            <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
+            <label for="dropdown-toggle" class="dropdown-btn nav-link">{% trans "Favorites" %}</label>
+            <div class="dropdown-menu">
+                {% for fav in favorites %}
+                    <form action="{% url 'show_favorites' %}" method="get" class="dropdown-item">
+                        <input type="hidden" name="city" value="{{ fav.city }}">
+                        <input type="hidden" name="country" value="{{ fav.country }}">
+                        {{ fav.city }} - {{ fav.country }}
+                        <button type="submit" class="dropdown-submit-btn"></button>
+                    </form>
+                {% empty %}
+                    <span class="dropdown-item text-muted">{% trans "You don't have any favorite cities." %}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dropdown">
+            <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
+            <label for="dropdown-toggle" class="dropdown-btn nav-link">{% trans "History" %}</label>
+            <div class="dropdown-menu">
+                {% if request.session.search_history %}
+                    {% for history in request.session.search_history %}
+                        <form action="{% url 'show_favorites' %}" method="get" class="dropdown-item">
+                            <input type="hidden" name="city" value="{{ history|first_word }}">
+                            {{ history }}
+                            <button type="submit" class="dropdown-submit-btn"></button>
+                        </form>
+                    {% endfor %}
+                {% else %}
+                    <span class="dropdown-item text-muted">{% trans "You don't have any search history yet." %}</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'custom_logout' %}" class="header-action-button">{% trans "Logout" %}</a>
+        <div class="user-info">
+                <span class="username">{{ user.username }}</span>
+                <span class="auth-status">{% trans "logged in" %}</span>
+        </div>
+        {% else %}
+                <a href="{% url 'custom_register' %}" class="header-action-button">{% trans "Register" %}</a>
+        {% endif %}
+    </div>
+</header>
+
+<div class="confirm-container">
+    <div class="confirm-card">
+        <label class="switch theme-switch">
+            <input type="checkbox" id="dark_theme_checkbox">
+            <span class="slider"></span>
+        </label>
+        
+        <div class="confirm-header">
+            <img src="{% static 'images/Temperature_pic.png' %}" alt="{% trans 'Weather' %}" class="confirm-icon">
+            <h2 class="confirm-title">{% trans "Account Created Successfully!" %}</h2>
+            <p class="confirm-subtitle">{% trans "Welcome to Pogoyda! Your account has been created and you can now access all features." %}</p>
+        </div>
+
+        <div class="confirm-content">
+            <div class="success-message">
+                <div class="success-icon">✓</div>
+                <h3>{% trans "Registration Complete" %}</h3>
+                <p>{% trans "Your account has been successfully created. You can now:" %}</p>
+                <ul class="features-list">
+                    <li>{% trans "Search weather for any city" %}</li>
+                    <li>{% trans "View detailed weather forecasts" %}</li>
+                    <li>{% trans "Save your favorite locations" %}</li>
+                    <li>{% trans "Access your weather history" %}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="confirm-actions">
+            <a href="{% url 'index_url' %}" class="confirm-button primary">
+                <span class="button-text">{% trans "Go to Weather Dashboard" %}</span>
+            </a>
+        </div>
+
+        <div class="confirm-footer">
+            <p class="confirm-note">
+                {% trans "Need help?" %} 
+                <a href="#" class="link-highlight">{% trans "Contact Support" %}</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/dark_theme.js' %}"></script>
+</body>
+</html>
