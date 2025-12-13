@@ -10,5 +10,6 @@ services:
       - redis
     environment:
       - REDIS_URL=redis://redis:6379
-    command:
-      sh -c "python manage.py migrate"
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
