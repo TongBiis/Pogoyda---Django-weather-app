@@ -2,7 +2,7 @@
 
 ![Django](https://img.shields.io/badge/Django-5.2-green)
 ![Python](https://img.shields.io/badge/Python-3.14-blue)
-![Tests](https://img.shields.io/badge/Tests-31%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/Tests-100%-brightgreen)
 ![Docker](https://img.shields.io/badge/Docker-Ready-blue)
 
 A Django-based weather forecast application with user authentication, multi-language support, and smart caching.
