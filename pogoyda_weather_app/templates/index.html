@@ -17,7 +17,6 @@
     </div>
     
     <div class="header-right">
-        <a href="{% url 'password_reset' %}" class="header-action-button">{% trans "Forgot password?" %}</a>
         {% if user.is_authenticated %}
         <div class="dropdown">
             <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
@@ -60,6 +59,7 @@
                 <span class="auth-status">{% trans "logged in" %}</span>
         </div>
         {% else %}
+                <a href="{% url 'password_reset' %}" class="nav-link">{% trans "Forgot password?" %}</a>
                 <a href="{% url 'custom_register' %}" class="header-action-button">{% trans "Register" %}</a>
         {% endif %}
     </div>
