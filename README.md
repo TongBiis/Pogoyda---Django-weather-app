@@ -2,20 +2,20 @@
 
 ![Django](https://img.shields.io/badge/Django-5.2-green)
 ![Python](https://img.shields.io/badge/Python-3.14-blue)
-![Tests](https://img.shields.io/badge/Tests-31%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/Tests-100%25%20passing-brightgreen)
 ![Docker](https://img.shields.io/badge/Docker-Ready-blue)
 
 A Django-based weather forecast application with user authentication, multi-language support, and smart caching.
 
 ## Key Features
 
-- Weather Forecast: Real-time weather data and 3-day hourly forecast for any city
-- Custom User Model: Email-based authentication with JWT token email verification
-- Password Recovery: Secure password reset via JWT tokens
-- Smart Caching: Redis-based caching to optimize API calls (weather data cached for 60s)
+- Weather Forecast: Real-time weather data and 2-day forecast for any city
+- Custom User Model: Session authentication with JWT email verification
+- Password Recovery: Secure password reset vith JWT tokens
+- Caching: Redis-based caching to optimize API calls (weather data cached for 60s)
 - Multi-language: English/Russian support with automatic browser language detection
 - Russian Morphology: Proper case declension using pymorphy3 (e.g., "в Москве" instead of "в Москва")
-- Favorites & History: Save favorite cities and track search history (up to 10 items)
+- Favorites & History: Save favorite cities and track search history
 - Rate Limiting: Protection against abuse with configurable limits per endpoint
 - IP Geolocation: Auto-detection of user location via IP address
 
