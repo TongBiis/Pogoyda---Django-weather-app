@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 15:01+0200\n"
+"POT-Creation-Date: 2025-12-12 23:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,3 +18,601 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\pogoyda_weather_app\forms.py:20
+msgid "Please, enter a city."
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:23
+msgid "The city name cannot have special characters."
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:31
+#: .\pogoyda_weather_app\templates\register_page.html:96
+msgid "Enter email"
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:34
+#: .\pogoyda_weather_app\templates\register_page.html:87
+msgid "Enter username"
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:37
+#: .\pogoyda_weather_app\templates\register_page.html:105
+msgid "Enter password"
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:39
+#: .\pogoyda_weather_app\templates\register_page.html:114
+msgid "Confirm password"
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:44
+msgid "A user with that username already exists."
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:51 .\pogoyda_weather_app\models.py:9
+msgid "A user with that email already exists."
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:61
+msgid "Passwords do not match."
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:72
+msgid "Enter your username"
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:74
+msgid "Enter your password"
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:84
+msgid "Invalid username or password."
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:99
+msgid "Enter new password"
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:109
+msgid "Confirm new password"
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:119
+msgid "Password do not match."
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:127
+msgid "Please enter the email address you used to register"
+msgstr ""
+
+#: .\pogoyda_weather_app\forms.py:133
+msgid "A user with that email not exists."
+msgstr ""
+
+#: .\pogoyda_weather_app\models.py:7
+msgid "email_address"
+msgstr ""
+
+#: .\pogoyda_weather_app\models.py:16
+msgid "CustomUser"
+msgstr ""
+
+#: .\pogoyda_weather_app\models.py:17
+msgid "CustomUsers"
+msgstr ""
+
+#: .\pogoyda_weather_app\models.py:29
+msgid "Favorite Location"
+msgstr ""
+
+#: .\pogoyda_weather_app\models.py:30
+msgid "Favorite Locations"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:9
+msgid "API Timeout"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:18
+#: .\pogoyda_weather_app\templates\confirm_register.html:19
+#: .\pogoyda_weather_app\templates\email_notify.html:17
+#: .\pogoyda_weather_app\templates\incorrect_city.html:19
+#: .\pogoyda_weather_app\templates\index.html:16
+#: .\pogoyda_weather_app\templates\login_page.html:19
+#: .\pogoyda_weather_app\templates\password_recovery.html:19
+#: .\pogoyda_weather_app\templates\recovery_notify.html:18
+#: .\pogoyda_weather_app\templates\register_page.html:19
+#: .\pogoyda_weather_app\templates\restore_account_page.html:19
+#: .\pogoyda_weather_app\templates\too_many_requests.html:17
+msgid "Pogoyda"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:26
+#: .\pogoyda_weather_app\templates\confirm_register.html:27
+#: .\pogoyda_weather_app\templates\incorrect_city.html:27
+#: .\pogoyda_weather_app\templates\index.html:24
+#: .\pogoyda_weather_app\templates\login_page.html:27
+#: .\pogoyda_weather_app\templates\password_recovery.html:27
+#: .\pogoyda_weather_app\templates\recovery_notify.html:26
+#: .\pogoyda_weather_app\templates\register_page.html:27
+#: .\pogoyda_weather_app\templates\restore_account_page.html:27
+#: .\pogoyda_weather_app\templates\too_many_requests.html:25
+msgid "Favorites"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:36
+#: .\pogoyda_weather_app\templates\confirm_register.html:37
+#: .\pogoyda_weather_app\templates\incorrect_city.html:37
+#: .\pogoyda_weather_app\templates\index.html:34
+#: .\pogoyda_weather_app\templates\login_page.html:37
+#: .\pogoyda_weather_app\templates\password_recovery.html:37
+#: .\pogoyda_weather_app\templates\recovery_notify.html:36
+#: .\pogoyda_weather_app\templates\register_page.html:37
+#: .\pogoyda_weather_app\templates\restore_account_page.html:37
+#: .\pogoyda_weather_app\templates\too_many_requests.html:35
+msgid "You don't have any favorite cities."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:42
+#: .\pogoyda_weather_app\templates\confirm_register.html:43
+#: .\pogoyda_weather_app\templates\incorrect_city.html:43
+#: .\pogoyda_weather_app\templates\index.html:40
+#: .\pogoyda_weather_app\templates\login_page.html:43
+#: .\pogoyda_weather_app\templates\password_recovery.html:43
+#: .\pogoyda_weather_app\templates\recovery_notify.html:42
+#: .\pogoyda_weather_app\templates\register_page.html:43
+#: .\pogoyda_weather_app\templates\restore_account_page.html:43
+#: .\pogoyda_weather_app\templates\too_many_requests.html:41
+msgid "History"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:53
+#: .\pogoyda_weather_app\templates\confirm_register.html:54
+#: .\pogoyda_weather_app\templates\incorrect_city.html:54
+#: .\pogoyda_weather_app\templates\index.html:51
+#: .\pogoyda_weather_app\templates\login_page.html:54
+#: .\pogoyda_weather_app\templates\password_recovery.html:54
+#: .\pogoyda_weather_app\templates\recovery_notify.html:53
+#: .\pogoyda_weather_app\templates\register_page.html:54
+#: .\pogoyda_weather_app\templates\restore_account_page.html:54
+#: .\pogoyda_weather_app\templates\too_many_requests.html:52
+msgid "You don't have any search history yet."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:59
+#: .\pogoyda_weather_app\templates\confirm_register.html:60
+#: .\pogoyda_weather_app\templates\incorrect_city.html:60
+#: .\pogoyda_weather_app\templates\index.html:57
+#: .\pogoyda_weather_app\templates\login_page.html:60
+#: .\pogoyda_weather_app\templates\password_recovery.html:60
+#: .\pogoyda_weather_app\templates\recovery_notify.html:59
+#: .\pogoyda_weather_app\templates\register_page.html:60
+#: .\pogoyda_weather_app\templates\restore_account_page.html:60
+#: .\pogoyda_weather_app\templates\too_many_requests.html:58
+msgid "Logout"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:62
+#: .\pogoyda_weather_app\templates\confirm_register.html:63
+#: .\pogoyda_weather_app\templates\incorrect_city.html:63
+#: .\pogoyda_weather_app\templates\index.html:60
+#: .\pogoyda_weather_app\templates\login_page.html:63
+#: .\pogoyda_weather_app\templates\password_recovery.html:63
+#: .\pogoyda_weather_app\templates\recovery_notify.html:62
+#: .\pogoyda_weather_app\templates\register_page.html:63
+#: .\pogoyda_weather_app\templates\restore_account_page.html:63
+#: .\pogoyda_weather_app\templates\too_many_requests.html:61
+msgid "logged in"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:65
+#: .\pogoyda_weather_app\templates\confirm_register.html:66
+#: .\pogoyda_weather_app\templates\email_notify.html:21
+#: .\pogoyda_weather_app\templates\incorrect_city.html:66
+#: .\pogoyda_weather_app\templates\index.html:63
+#: .\pogoyda_weather_app\templates\login_page.html:66
+#: .\pogoyda_weather_app\templates\password_recovery.html:66
+#: .\pogoyda_weather_app\templates\recovery_notify.html:65
+#: .\pogoyda_weather_app\templates\register_page.html:66
+#: .\pogoyda_weather_app\templates\restore_account_page.html:66
+#: .\pogoyda_weather_app\templates\too_many_requests.html:64
+msgid "Register"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:78
+#: .\pogoyda_weather_app\templates\confirm_register.html:79
+#: .\pogoyda_weather_app\templates\incorrect_city.html:79
+#: .\pogoyda_weather_app\templates\index.html:71
+#: .\pogoyda_weather_app\templates\login_page.html:78
+#: .\pogoyda_weather_app\templates\password_recovery.html:78
+#: .\pogoyda_weather_app\templates\register_page.html:78
+#: .\pogoyda_weather_app\templates\restore_account_page.html:78
+msgid "Weather"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:79
+msgid "Sorry"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:80
+msgid ""
+"The weather service is currently unavailable. Please try again in a few "
+"moments."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:86
+msgid "Service Unavailable"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:87
+msgid ""
+"Unfortunately, our weather data provider is temporarily experiencing "
+"technical issues."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:89
+msgid "Try refreshing the page in a few minutes"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:90
+msgid "The service should be back online shortly"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:91
+msgid "We apologize for the inconvenience"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\api_error.html:98
+msgid "Try Again"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:10
+msgid "Account Created"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:80
+msgid "Account Created Successfully!"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:81
+msgid ""
+"Welcome to Pogoyda! Your account has been created and you can now access all "
+"features."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:87
+msgid "Registration Complete"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:88
+msgid "Your account has been successfully created. You can now:"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:90
+msgid "Search weather for any city"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:91
+msgid "View detailed weather forecasts"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:92
+msgid "Save your favorite locations"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:93
+msgid "Access your weather history"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:100
+msgid "Go to Weather Dashboard"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:106
+#: .\pogoyda_weather_app\templates\incorrect_city.html:106
+msgid "Need help?"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\confirm_register.html:107
+#: .\pogoyda_weather_app\templates\incorrect_city.html:107
+msgid "Contact Support"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\email_notify.html:8
+msgid "Email Confirmation"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\email_notify.html:33
+#: .\pogoyda_weather_app\templates\password_recovery.html:87
+#: .\pogoyda_weather_app\templates\register_page.html:95
+msgid "Email"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\email_notify.html:34
+#: .\pogoyda_weather_app\templates\recovery_notify.html:79
+msgid "Check Your Email"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\email_notify.html:35
+msgid "We've sent a confirmation link to your email address"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\email_notify.html:40
+msgid ""
+"Please check your inbox and click the confirmation link to complete your "
+"registration."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\email_notify.html:41
+#: .\pogoyda_weather_app\templates\recovery_notify.html:86
+msgid "If you don't see the email, check your spam folder."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\email_notify.html:47
+#: .\pogoyda_weather_app\templates\recovery_notify.html:93
+#: .\pogoyda_weather_app\templates\too_many_requests.html:92
+msgid "Back to"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\email_notify.html:48
+#: .\pogoyda_weather_app\templates\recovery_notify.html:94
+#: .\pogoyda_weather_app\templates\too_many_requests.html:93
+msgid "Home"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:10
+msgid "City Not Found"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:80
+msgid "City Not Found!"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:81
+msgid ""
+"We couldn't find weather data for the city you searched. Please check your "
+"input and try again."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:87
+msgid "Search Failed"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:88
+msgid "We couldn't find weather data for"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:88
+msgid "Please try again with these suggestions:"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:90
+msgid "Check for spelling mistakes"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:91
+msgid "Use the city's official name"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:92
+msgid "Try nearby major cities"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:93
+msgid "Use English or local language names"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\incorrect_city.html:100
+msgid "Try Another Search"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:20
+msgid "Forgot password?"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:72
+msgid "Welcome!"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:73
+msgid "Find out the weather in any city in the world"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:74
+msgid "Example: "
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:74
+msgid "Moscow, London, Tokyo"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:79
+msgid "Enter a city name"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:80
+msgid "Find the weather"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:93
+msgid "Weather in"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:99
+msgid "Add to favorites"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:119
+#: .\pogoyda_weather_app\templates\index.html:122
+#: .\pogoyda_weather_app\templates\index.html:155
+msgid "Temperature"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:127
+#: .\pogoyda_weather_app\templates\index.html:130
+msgid "Wind"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:129
+#: .\pogoyda_weather_app\templates\index.html:158
+msgid "km/h"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:135
+#: .\pogoyda_weather_app\templates\index.html:138
+#: .\pogoyda_weather_app\templates\index.html:159
+msgid "Humidity"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:145
+msgid "Show forecast for 2 day ahead"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:158
+msgid "Wind: "
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:158
+msgid "Wind speed"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:159
+msgid "Humidity: "
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\index.html:160
+msgid "Condition:"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\login_page.html:10
+#: .\pogoyda_weather_app\templates\login_page.html:101
+msgid "Sign In"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\login_page.html:79
+msgid "Welcome"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\login_page.html:80
+msgid "Sign in to access your weather dashboard"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\login_page.html:86
+#: .\pogoyda_weather_app\templates\register_page.html:86
+msgid "Username"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\login_page.html:89
+#: .\pogoyda_weather_app\templates\register_page.html:104
+msgid "Password"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\login_page.html:110
+msgid "Forgot your account login details?"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\login_page.html:111
+msgid "Restore account"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\password_recovery.html:10
+#: .\pogoyda_weather_app\templates\password_recovery.html:79
+#: .\pogoyda_weather_app\templates\recovery_notify.html:9
+#: .\pogoyda_weather_app\templates\recovery_notify.html:78
+msgid "Password Recovery"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\password_recovery.html:80
+msgid "Enter your email address to receive a password reset link"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\password_recovery.html:95
+msgid "Send Recovery Email"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\password_recovery.html:101
+msgid "Remember your password?"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\password_recovery.html:102
+#: .\pogoyda_weather_app\templates\register_page.html:137
+msgid "Sign in"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\recovery_notify.html:80
+msgid "We've sent a password reset link to your email address"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\recovery_notify.html:85
+msgid ""
+"Please check your inbox and click the password reset link to create a new "
+"password."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\recovery_notify.html:87
+msgid "The link will expire in 4 hours for security reasons."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\register_page.html:10
+msgid "Registration"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\register_page.html:79
+#: .\pogoyda_weather_app\templates\register_page.html:130
+msgid "Create Account"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\register_page.html:80
+msgid "Join Pogoyda to track weather in your favorite cities"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\register_page.html:113
+msgid "Confirm Password"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\register_page.html:136
+msgid "Already have an account?"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\restore_account_page.html:79
+msgid "Hello"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\restore_account_page.html:80
+msgid "Set a new password for your Pogoyda account"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\restore_account_page.html:87
+msgid "New Password"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\restore_account_page.html:91
+msgid "Confirm New Password"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\restore_account_page.html:117
+msgid "Restore Account"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\too_many_requests.html:8
+#: .\pogoyda_weather_app\templates\too_many_requests.html:77
+#: .\pogoyda_weather_app\templates\too_many_requests.html:78
+msgid "Too Many Requests"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\too_many_requests.html:79
+msgid "Please wait before making another request"
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\too_many_requests.html:84
+msgid "You have sent too many requests in a short period of time."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\too_many_requests.html:85
+msgid "Please wait a few minutes before trying again."
+msgstr ""
+
+#: .\pogoyda_weather_app\templates\too_many_requests.html:86
+msgid "This helps us protect our service from abuse."
+msgstr ""

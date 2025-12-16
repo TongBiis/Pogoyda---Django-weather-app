@@ -126,7 +126,6 @@
                             <div class="weather-detail">
                                 <img src="{% static 'images/Wind_speed_pic.png' %}" alt="{% trans 'Wind' %}" class="detail-icon">
                                 <div class="detail-info">
-<!--                                    <span class="detail-value">{{ current_weather.wind }} {% trans "km/h" %}</span>-->
                                     <span class="detail-value">{{ current_weather.wind }} {{ current_weather.wind_unit }}</span>
                                     <span class="detail-label">{% trans "Wind" %}</span>
                                 </div>
@@ -156,7 +155,6 @@
                                     <span class="temperature"><img class="hour-pics" src="{% static 'images/Temperature_pic.png' %}" alt="" title="{% trans 'Temperature' %}"> {{ hour.temp_c|floatformat:'0' }}°C</span></span>
                                 </div>
                                 <div class="hour-details">
-<!--                                    <div class="detail"><span>{% trans "Wind: " %}</span> {{ hour.wind }} {% trans "km/h" %} <img class="hour-pics" src="{% static 'images/Wind_speed_pic.png' %}" alt="" title="{% trans 'Wind speed' %}"></div>-->
                                     <div class="detail"><span>{% trans "Wind: " %}</span> {{ hour.wind }} {{ hour.wind_unit }} <img class="hour-pics" src="{% static 'images/Wind_speed_pic.png' %}" alt="" title="{% trans 'Wind speed' %}"></div>
                                     <div class="detail"><span>{% trans "Humidity: " %}</span> {{ hour.humidity }}% <img class="hour-pics" src="{% static 'images/Humidity_pic.png' %}" alt="" title="{% trans 'Humidity' %}"></div>
                                     <div class="detail"><span>{% trans "Condition:" %}</span> <img src="{{ hour.condition_icon }}" alt="{{ hour.condition_text }}" title="{{ hour.condition_text }}" class="condition-pics"></div>
