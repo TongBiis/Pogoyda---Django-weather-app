@@ -52,7 +52,8 @@ def generate_account_recovery_token(email, username): # Generate token for passw
     return token
 
 
-def extract_forecast_data(data):
+
+def extract_forecast_data(data, lang):
     forecast_by_days = [] # Create list for forecast data to use later
 
     for day_data in data['forecast']['forecastday']: # Process each day's general information
@@ -68,7 +69,8 @@ def extract_forecast_data(data):
                 day_entry['hours'].append({ # Add data to hourly forecast
                     'time': hour_data['time'][11:16], # Keep only hours and minutes
                     'temp_c': hour_data['temp_c'], # Temperature in Celsius
-                    'wind_kph': hour_data['wind_kph'], # Wind speed in km/h
+                    'wind': hour_data['wind_kph'] if lang == 'ru' else hour_data['wind_mph'], # Wind speed in km/h
+                    'wind_unit': 'км/ч' if lang == 'ru' else 'mph',
                     'humidity': hour_data['humidity'], # Humidity
                     'condition_icon': hour_data['condition']['icon'], # Weather icon
                     'condition_text': hour_data['condition']['text'] # Weather condition
@@ -85,14 +87,15 @@ def extract_forecast_data(data):
     current = { # Current weather data, separated from forecast to avoid confusion
         'localtime': data['location']['localtime'],
         'temp_c': data['current']['temp_c'],
-        'wind_kph': data['current']['wind_kph'],
+        'wind': data['current']['wind_kph'] if lang == 'ru' else data['current']['wind_mph'],
+        'wind_unit': 'км/ч' if lang == 'ru' else 'mph',
         'humidity': data['current']['humidity'],
         'condition_icon': data['current']['condition']['icon'],
         'condition_text': data['current']['condition']['text'],
     }
 
     return {
-        'forecast_by_days': forecast_by_days[1:],
+        'forecast_by_days': forecast_by_days,
         'location': location,
         'current': current,
     }
@@ -213,7 +216,7 @@ def index(request): # Main function
     elif weather_data in ['API_timeout', 'API_error']: # Other errors are considered API errors, notify user
         return redirect('redirect_to_api_error')
 
-    forecast = extract_forecast_data(weather_data) # Extract weather forecast from weather data
+    forecast = extract_forecast_data(weather_data, lang) # Extract weather forecast from weather data
     location = forecast['location'] # Location data (city, region, country)
     request.session['country'] = location['country'] # Add to session so after page reload user sees the city they entered
     request.session['city'] = location['city']
