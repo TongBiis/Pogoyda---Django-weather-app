@@ -48,6 +48,18 @@ A Django-based weather forecast application with user authentication, multi-lang
 5. Run migrations: `python manage.py migrate`
 6. Start server: `python manage.py runserver`
 
+## Deployment
+
+The project is deployed and publicly available at https://pogoyda.ru.
+
+Production environment setup:
+- Server: Ubuntu VPS (Virtual Private Server)
+- Application Server: Gunicorn with systemd service management
+- Web Server: Nginx as reverse proxy and static files handler
+- Database: PostgreSQL (installed and configured directly on the VPS)
+- Caching: Redis (installed as a system service)
+- Domain & SSL: Domain configuration with Regru and confirmed SSL certificate
+
 ## Testing
 
 The project includes comprehensive test coverage for:
